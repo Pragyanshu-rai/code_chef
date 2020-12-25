@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int repeat,cupcakes;
+    cin>>repeat;
+    while(repeat--)
+    {
+        cin>>cupcakes;
+
+        if the cupcake package size is 1 more than the inte 
+     
+        cout<<(cupcakes/2)+1<<endl;
+    }
+    return 0;
+}
