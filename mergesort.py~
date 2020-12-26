@@ -1,5 +1,5 @@
 import time
-print("Enter the elements of the array\n>>")
+print("Enter the elements of the array")
 array=list(map(int,input().split()))
 size=len(array)
 def merge(low,mid,high):
