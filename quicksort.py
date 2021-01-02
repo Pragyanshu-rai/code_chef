@@ -2,8 +2,8 @@ print("Enter the elements of the array")
 array=list(map(int,input().split()))
 size=len(array)
 def part(low,high):
-    pivot=low
-    while array[low]<=array[pivot]:
+    pivot=(low+high)//2
+    while array[low]<array[pivot]:
         low+=1
     while array[high]>array[pivot]:
         high-=1

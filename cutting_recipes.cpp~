@@ -1,0 +1,77 @@
+#include <iostream>
+#include <bits/stdc++.h>
+#include <cmath>
+using namespace std;
+int size=0;
+int gcd(int first_number,int second_number)
+{
+    if(first_number==0)
+        return second_number;
+
+    if(second_number==0)
+        return first_number;
+
+    if(first_number>second_number)
+        return gcd(first_number%second_number,second_number);
+
+    return gcd(first_number,second_number%first_number);
+}
+int* factor(int number)
+{
+    int *array[number],index=0;
+    array=(int *)malloc(4*number);
+    memset(array,0,number);
+    cout<<floor(sqrt(20))<<endl;
+    for(int factor=2;factor<=floor(sqrt(number));factor++)
+    {
+        if(number%factor==0)
+        {
+            array[index]=factor;
+            array[index+1]=number/factor;
+            index+=2;
+            size+=2;
+        }
+    }
+    return array;
+}
+int main()
+{
+    int repeat;
+    cin >> repeat;
+    int *array2=factor(20);
+    for(int index=0;index<size;index++)
+        cout<<array2[index]<<" ";
+    cout<<endl;
+    delete[] array2;
+    while(repeat--)
+    {
+      int size, min;
+      bool float_flag=false; 
+      cin >> size;
+      int array[size], op[size];
+      for(int index=0;index<size;index++)
+      {
+        cin >> array[index];
+        if(index==0)
+            min=array[index];
+        else
+        min = gcd(min,array[index]);
+      }
+      for(int index=0;index<size;index++)
+      {
+          op[index]=array[index]/min;
+          if(array[index]%min!=0)
+          {
+              float_flag=true;
+              break;
+          }
+      }
+      if(float_flag==true)
+        for(int index=0;index<size;index++)
+          cout <<array[index]<<" ";
+      else
+        for(int index=0;index<size;index++)
+          cout <<op[index]<<" ";
+      cout <<endl;
+    }
+}

@@ -1,8 +1,8 @@
 print("Enter the elements of the array")
 array=list(map(int,input().split()))
-
+size=len(array)
 def part(low,high):
-    pivot=low
+    pivot=(low+high)//2
     while array[low]<=array[pivot]:
         low+=1
     while array[high]>array[pivot]:
@@ -17,5 +17,5 @@ def quicksort(low,high):
         new_high=part(low,high)
         quicksort(low,new_high)
         quicksort(new_high+1,high)
-quicksort(0,5)
+quicksort(0,size-1)
 print(array)
